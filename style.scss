@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda+One&display=swap');
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background-image: url('/showcase-1.jpg');
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @media (max-width: 768px) {
+    background-image: url('/showcase-1.jpg'),
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background-blend-mode: overlay;
+    background-position: right;
+  }
+}
+
+.container {
+  min-height: 100vh;
+  color: white;
+  margin: 20px 0px 0px 40px;
+  font-family: 'Caveat', cursive;
+  .header {
+    height: max-content;
+    .title {
+      font-size: 50px;
+      width: fit-content;
+      letter-spacing: 1rem;
+      padding: 10px;
+      @media (max-width: 768px) {
+        font-size: 40px;
+      }
+      span {
+        padding-left: 10px;
+        background-color: hsl(21, 100%, 53%);
+        border-radius: 5px;
+        box-shadow: 0 0 5px #ff630f, 0 0 25px #ff630f, 0 0 50px #ff630f,
+          0 0 100px #ff630f;
+        transition: box-shadow 2s ease-in-out;
+      }
+    }
+  }
+  .d-flex {
+    width: 100%;
+    margin-top: 50px;
+    padding-left: 10px;
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    @media (max-width: 1300px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+      margin-right: 10px;
+    }
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      grid-gap: 10px;
+      margin-right: 10px;
+    }
+    .form-group {
+      position: relative;
+      height: max-content;
+      padding-top: 20px;
+      overflow: hidden;
+      input {
+        width: 95%;
+        height: 100%;
+        color: #fff;
+        padding-top: 30px;
+        font-size: 16px;
+        font-style: italic;
+        font-family: 'Merienda One', cursive;
+        letter-spacing: 0.1em;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        &::placeholder {
+          color: transparent;
+        }
+        &:focus + .label-field .content-name {
+          transform: translateY(-100%);
+          font-size: 22px;
+          color: #ff630f;
+        }
+        &:valid + .label-field .content-name {
+          transform: translateY(-100%);
+          font-size: 22px;
+          color: #ff630f;
+        }
+        &:focus + .label-field::after {
+          transform: translateX(0%);
+        }
+        &:valid + .label-field::after {
+          transform: translateX(0%);
+        }
+      }
+      label {
+        position: absolute;
+        font-size: 25px;
+        bottom: 0px;
+        left: 0%;
+        width: 95%;
+        height: 100%;
+        pointer-events: none;
+        border-bottom: 1px solid #fff;
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0px;
+          width: 100%;
+          height: 100%;
+          bottom: -1px;
+          border-bottom: 1px solid #ff630f;
+          transform: translateX(-100%);
+          transition: transform 0.3s ease;
+        }
+        .content-name {
+          position: absolute;
+          bottom: 5px;
+          left: 0px;
+          transition: all 0.3s ease;
+        }
+      }
+      p {
+        font-size: 25px;
+        letter-spacing: 0.1em;
+        margin: 10px 0px;
+      }
+      select {
+        font-family: inherit;
+        font-size: 20px;
+        letter-spacing: 0.1em;
+        width: 95%;
+        outline: none;
+        border-style: none;
+        margin-top: 5px;
+        border: none !important;
+        border-bottom: 1px solid #fff !important;
+        color: #fff;
+        background-color: transparent;
+        &:focus-within {
+          border-bottom: 1px solid #ff630f !important;
+        }
+        &:valid {
+          border-bottom: 1px solid #ff630f !important;
+        }
+        option {
+          transition: all 0.3s ease;
+          background: rgb(255, 255, 255) transparent;
+          border: none;
+          outline: none;
+          color: #ff630f;
+        }
+      }
+      textarea {
+        background-color: transparent;
+        font-family: inherit;
+        font-size: 20px;
+        line-height: 1.5;
+        letter-spacing: 0.1em;
+        color: #fff;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #fff;
+        &:focus {
+          border-bottom: 1px solid #ff630f;
+          transition: border-bottom 0.3s linear;
+          color: #fff;
+        }
+      }
+    }
+    .form-group-radio {
+      position: relative;
+      height: max-content;
+      padding-top: 20px;
+      overflow: hidden;
+      p {
+        font-size: 25px;
+        letter-spacing: 0.1em;
+        margin: 10px 0px;
+      }
+      label {
+        display: flex;
+        color: #f8f8ff;
+        padding-bottom: 10px;
+        letter-spacing: 0.1em;
+        font-size: 20px;
+        outline: none;
+        input[type='radio'] {
+          margin-right: 10px;
+          &:checked + .check {
+            transition: all 0.3s ease;
+            color: #ff630f;
+          }
+        }
+        input[type='checkbox'] {
+          margin-right: 10px;
+          background-color: red;
+          &:checked + .check {
+            transition: all 0.3s ease;
+            color: #ff630f;
+          }
+        }
+      }
+    }
+    button[type='submit'] {
+      padding: 10px;
+      margin-top: 40px;
+      width: 95%;
+      margin-bottom: 20px;
+      font-family: inherit;
+      font-size: 22px;
+      letter-spacing: 0.1em;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: transparent;
+      border: 2px solid #ff2002;
+      border-radius: 5px;
+      &:hover {
+        background-color: #ff2002;
+        box-shadow: 0 0 4px #ff470f, 0 0 16px #ff470f, 0 0 32px #ff470f,
+          0 0 64px #ff470f;
+      }
+    }
+  }
+}
